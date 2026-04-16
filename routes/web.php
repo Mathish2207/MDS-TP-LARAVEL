@@ -19,20 +19,26 @@ Route::middleware('auth')->group(function () {
      Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
      
      Route::get('/films', [FilmController::class, 'index'])->name('films.index');
-     Route::get('/films/create', [FilmController::class, 'create'])->name('films.create');
-     Route::post('/films', [FilmController::class, 'store'])->name('films.store');
-     Route::get('/films/{id}', [FilmController::class, 'show'])->name('films.show');
-     Route::get('/films/{id}/edit', [FilmController::class, 'edit'])->name('films.edit');
-     Route::put('/films/{id}', [FilmController::class, 'update'])->name('films.update');
-     Route::delete('/films/{id}', [FilmController::class, 'destroy'])->name('films.destroy');
+     Route::middleware('admin')->group(function () {
+        Route::get('/films/create', [FilmController::class, 'create'])->name('films.create');
+        Route::post('/films', [FilmController::class, 'store'])->name('films.store');
+     });
+        Route::get('/films/{id}', [FilmController::class, 'show'])->name('films.show');
+    Route::middleware('admin')->group(function () {
+        Route::get('/films/{id}/edit', [FilmController::class, 'edit'])->name('films.edit');
+        Route::patch('/films/{id}', [FilmController::class, 'update'])->name('films.update');
+        Route::delete('/films/{id}', [FilmController::class, 'destroy'])->name('films.destroy');
+    });    
 
      Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
      Route::get('/locations/create', [LocationController::class, 'create'])->name('locations.create');
      Route::post('/locations', [LocationController::class, 'store'])->name('locations.store');
      Route::get('/locations/{id}', [LocationController::class, 'show'])->name('locations.show');
-     Route::get('/locations/{id}/edit', [LocationController::class, 'edit'])->name('locations.edit');
-     Route::put('/locations/{id}', [LocationController::class, 'update'])->name('locations.update');
-     Route::delete('/locations/{id}', [LocationController::class, 'destroy'])->name('locations.destroy');
+     Route::middleware('admin')->group(function () {
+        Route::get('/locations/{id}/edit', [LocationController::class, 'edit'])->name('locations.edit');
+        Route::patch('/locations/{id}', [LocationController::class, 'update'])->name('locations.update');
+        Route::delete('/locations/{id}', [LocationController::class, 'destroy'])->name('locations.destroy');
+     });
     });
 
 require __DIR__.'/auth.php';

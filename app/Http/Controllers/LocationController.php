@@ -74,8 +74,9 @@ class LocationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(LocationRequest $request, Location $location): RedirectResponse
+    public function update(LocationRequest $request, $id): RedirectResponse
     {
+        $location = Location::findOrFail($id);
         $location->update($request->validated());
 
         return Redirect::route('locations.index')

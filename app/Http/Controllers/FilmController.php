@@ -66,8 +66,9 @@ class FilmController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(FilmRequest $request, Film $film): RedirectResponse
+    public function update(FilmRequest $request, $id): RedirectResponse
     {
+        $film = Film::findOrFail($id);
         $film->update($request->validated());
 
         return Redirect::route('films.index')
