@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\FilmsSeeder;
+use Database\Seeders\LocationsSeeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,5 +30,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'user@example.com',
             'password' => '00000000',
         ]);
+
     }
 }

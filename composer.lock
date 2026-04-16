@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7742f34a0717696364e7654a7ea84665",
+    "content-hash": "688deb024a76e2d73e4ba713d8239ff6",
     "packages": [
         {
             "name": "brick/math",
@@ -6109,6 +6109,87 @@
             "time": "2026-03-29T15:46:14+00:00"
         },
         {
+            "name": "crestapps/laravel-code-generator",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CrestApps/laravel-code-generator.git",
+                "reference": "71dc2acc9336c78a5c332682e40ef32d6214a413"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CrestApps/laravel-code-generator/zipball/71dc2acc9336c78a5c332682e40ef32d6214a413",
+                "reference": "71dc2acc9336c78a5c332682e40ef32d6214a413",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9||~1.0",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^5.0||^6.0||^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CrestApps\\CodeGenerator\\CodeGeneratorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CrestApps\\CodeGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Majd Alhayek (Mike)",
+                    "email": "mike@crestapps.com",
+                    "homepage": "https://www.crestapps.com"
+                }
+            ],
+            "description": "An intelligent code generator for Laravel framework that will save you time! This awesome tool will help you generate resources like views, controllers, routes, migrations, languages and/or form-requests! It is extremely flexible and customizable to cover many on the use cases. It is shipped with cross-browsers compatible template, along with a client-side validation to modernize your application.",
+            "keywords": [
+                "Alhayek",
+                "CrestApps",
+                "Majd Alhayek",
+                "Mike Alhayek",
+                "code generator",
+                "code-generator",
+                "controller creator",
+                "crud",
+                "crud builder",
+                "crud generator",
+                "generator",
+                "generators",
+                "laravel",
+                "laravel code generator",
+                "laravel crud",
+                "laravel crud builder",
+                "laravel crud generator",
+                "laravel-code-generator",
+                "routes creator",
+                "views creator"
+            ],
+            "support": {
+                "issues": "https://github.com/CrestApps/laravel-code-generator/issues",
+                "source": "https://github.com/CrestApps/laravel-code-generator/tree/v3.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/malhayek",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-28T23:01:34+00:00"
+        },
+        {
             "name": "doctrine/deprecations",
             "version": "1.1.6",
             "source": {
@@ -6401,6 +6482,76 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.1.1"
             },
             "time": "2025-04-30T06:54:44+00:00"
+        },
+        {
+            "name": "ibex/crud-generator",
+            "version": "v2.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/awais-vteams/laravel-crud-generator.git",
+                "reference": "ca88d9c2796b585a50fc9f3493b94e6f6a881b35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/awais-vteams/laravel-crud-generator/zipball/ca88d9c2796b585a50fc9f3493b94e6f6a881b35",
+                "reference": "ca88d9c2796b585a50fc9f3493b94e6f6a881b35",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^10.30|^11.44|^12.2|^13.1",
+                "php": "^8.2|^8.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ibex\\CrudGenerator\\CrudServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ibex\\CrudGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "M Awais",
+                    "email": "asargodha@gmail.com"
+                }
+            ],
+            "description": "Laravel CRUD Generator",
+            "keywords": [
+                "alpine js",
+                "bootstrap css",
+                "crud",
+                "crud generator",
+                "laravel",
+                "laravel breez",
+                "laravel crud generator",
+                "laravel package",
+                "livewire",
+                "tailwind css"
+            ],
+            "support": {
+                "issues": "https://github.com/awais-vteams/laravel-crud-generator/issues",
+                "source": "https://github.com/awais-vteams/laravel-crud-generator/tree/v2.1.9"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/awais-vteams",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/mawais",
+                    "type": "ko_fi"
+                }
+            ],
+            "time": "2026-03-28T09:14:24+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
