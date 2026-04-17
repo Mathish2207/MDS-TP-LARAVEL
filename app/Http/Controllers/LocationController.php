@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Location;
-use App\Models\Film;
+use App\Http\Requests\LocationRequest;
 use App\Jobs\ProcessUpvote;
+use App\Models\Film;
+use App\Models\Location;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Http\Requests\LocationRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Auth;
 
 class LocationController extends Controller
 {
@@ -30,7 +30,7 @@ class LocationController extends Controller
      */
     public function create(): View
     {
-        $location = new Location();
+        $location = new Location;
         $films = Film::all();
 
         return view('location.create', compact('location', 'films'));
@@ -44,7 +44,7 @@ class LocationController extends Controller
         $data = $request->validated();
         $data['user_id'] = Auth::id();
         $data['upvotes_count'] = 0;
-        
+
         Location::create($data);
 
         return Redirect::route('locations.index')
@@ -95,7 +95,7 @@ class LocationController extends Controller
     public function upvote($id): RedirectResponse
     {
         $user = Auth::user();
-        
+
         ProcessUpvote::dispatch($user->id, $id);
 
         return Redirect::back()

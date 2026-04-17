@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Location
@@ -17,15 +19,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property $upvotes_count
  * @property $film_id
  * @property $user_id
- *
  * @property User $user
  * @property Film $film
- * @package App
- * @mixin \Illuminate\Database\Eloquent\Builder
+ *
+ * @mixin Builder
  */
 class Location extends Model
 {
-    
     protected $perPage = 20;
 
     /**
@@ -35,21 +35,19 @@ class Location extends Model
      */
     protected $fillable = ['name', 'city', 'country', 'description', 'upvotes_count', 'film_id', 'user_id'];
 
-
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
-    
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function film()
     {
-        return $this->belongsTo(\App\Models\Film::class, 'film_id', 'id');
+        return $this->belongsTo(Film::class, 'film_id', 'id');
     }
-    
 }

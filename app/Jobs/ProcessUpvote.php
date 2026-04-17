@@ -12,6 +12,7 @@ class ProcessUpvote implements ShouldQueue
     use Queueable;
 
     public $userId;
+
     public $locationId;
 
     /**
@@ -29,13 +30,15 @@ class ProcessUpvote implements ShouldQueue
     public function handle(): void
     {
         $location = Location::find($this->locationId);
-        if (!$location) return;
+        if (! $location) {
+            return;
+        }
 
         $voteExists = Vote::where('user_id', $this->userId)
             ->where('location_id', $this->locationId)
             ->exists();
 
-        if (!$voteExists) {
+        if (! $voteExists) {
             Vote::create([
                 'user_id' => $this->userId,
                 'location_id' => $this->locationId,
@@ -46,4 +49,3 @@ class ProcessUpvote implements ShouldQueue
         }
     }
 }
-

@@ -10,7 +10,6 @@ use Illuminate\Console\Command;
 #[Description('Delete all failed jobs')]
 class deleteAllFailed_job extends Command
 {
-    
     /**
      * Execute the console command.
      */
@@ -20,6 +19,7 @@ class deleteAllFailed_job extends Command
 
         if ($failedJobs->isEmpty()) {
             $this->info('No failed jobs found.');
+
             return;
         }
 

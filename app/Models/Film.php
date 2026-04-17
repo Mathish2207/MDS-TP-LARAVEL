@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,12 +15,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property $release_year
  * @property $synopsis
  *
- * @package App
- * @mixin \Illuminate\Database\Eloquent\Builder
+ * @mixin Builder
  */
 class Film extends Model
 {
-    
     protected $perPage = 20;
 
     /**
@@ -28,6 +27,4 @@ class Film extends Model
      * @var array<int, string>
      */
     protected $fillable = ['title', 'release_year', 'synopsis'];
-
-
 }

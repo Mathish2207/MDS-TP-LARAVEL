@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FilmRequest;
 use App\Models\Film;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Http\Requests\FilmRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -27,7 +27,7 @@ class FilmController extends Controller
      */
     public function create(): View
     {
-        $film = new Film();
+        $film = new Film;
 
         return view('film.create', compact('film'));
     }
