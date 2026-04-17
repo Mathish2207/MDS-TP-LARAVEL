@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProfileController;
@@ -7,6 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('auth/{provider}')->group(function () {
+    Route::get('/redirect', [AuthenticationController::class, 'redirect'])->name('auth.redirect');
+    Route::get('/callback', [AuthenticationController::class, 'callback'])->name('auth.callback');
 });
 
 Route::get('/dashboard', function () {
