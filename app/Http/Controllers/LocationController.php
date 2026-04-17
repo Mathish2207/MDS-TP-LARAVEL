@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Location;
 use App\Models\Film;
+use App\Jobs\ProcessUpvote;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\LocationRequest;
@@ -89,5 +90,15 @@ class LocationController extends Controller
 
         return Redirect::route('locations.index')
             ->with('success', 'Location deleted successfully');
+    }
+
+    public function upvote($id): RedirectResponse
+    {
+        $user = Auth::user();
+        
+        ProcessUpvote::dispatch($user->id, $id);
+
+        return Redirect::back()
+            ->with('success', 'Votre vote a été enregistré!');
     }
 }

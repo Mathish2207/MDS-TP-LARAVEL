@@ -49,6 +49,13 @@
                                     {{ $location->user_id }}
                                 </div>
 
+                                <div class="form-group mb-2 mb20">
+                                    <form action="{{ route('locations.upvote', $location->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success btn-sm">👍 Upvote ({{ $location->upvotes_count }})</button>
+                                    </form>
+                                </div>
+
                     </div>
                 </div>
             </div>

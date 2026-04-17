@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
      Route::get('/locations/create', [LocationController::class, 'create'])->name('locations.create');
      Route::post('/locations', [LocationController::class, 'store'])->name('locations.store');
      Route::get('/locations/{id}', [LocationController::class, 'show'])->name('locations.show');
+     Route::post('/locations/{id}/upvote', [LocationController::class, 'upvote'])->name('locations.upvote');
      Route::middleware('admin')->group(function () {
         Route::get('/locations/{id}/edit', [LocationController::class, 'edit'])->name('locations.edit');
         Route::patch('/locations/{id}', [LocationController::class, 'update'])->name('locations.update');
